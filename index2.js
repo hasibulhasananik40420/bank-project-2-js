@@ -1,23 +1,6 @@
- /*
- document.getElementById('deposit-button').addEventListener('click', function(){
-     //get the amount deposited
-     const depositField = document.getElementById('deposit-input');
-     const newdepositAmount = depositField.value
-     
-
-      const depositTotal = document.getElementById('deposit-total');
-        const previousDepositAmount =depositTotal.innerText;
-         const newdepositTotal = previousDepositAmount + newdepositAmount;
-       depositTotal.innerText = newdepositTotal;
-  // 6.17second 26-7
-
-       //clear the deposit input field
-       depositField.value =''
- })
- */
 
    // new function starts 
-
+/*
    document.getElementById('deposit-button').addEventListener('click', function(){
       const depositInput = document.getElementById('deposit-input')
       const depositAmount = depositInput.value;
@@ -52,7 +35,39 @@
         balanceTotal.innerText = parseFloat(balanceTotalText) - parseFloat(withdrawAmountText)
       // clear withdraw input
       withdrawInput.value = ''
-
-
-
     })
+    */
+
+    document.getElementById('deposit-button').addEventListener('click', function(){
+       const depositInput = document.getElementById('deposit-input')
+       const depositAmount = depositInput.value
+      
+        const depositTotal = document.getElementById('deposit-total')
+        const depositTotalText = depositTotal.innerText
+         depositTotal.innerText =parseFloat(depositTotalText) +parseFloat(depositAmount)
+
+         //update balance
+          const balanceInput = document.getElementById('balance-total')
+          const balanceInputText = balanceInput.innerText
+           balanceInput.innerText = parseFloat(balanceInputText) + parseFloat(depositAmount)
+
+          //  input clear
+          depositInput.value = ''
+    })
+
+    //  withdraw part get input
+     document.getElementById('withdraw-button').addEventListener('click' , function(){
+        const withdrawInput = document.getElementById('withdraw-input')
+        const withdrawInputText = withdrawInput.value
+        
+
+         const withdrawTotal = document.getElementById('withdraw-total')
+         const withdrawInputAmount = withdrawTotal.innerText
+         withdrawTotal.innerText = parseFloat(withdrawInputAmount) + parseFloat( withdrawInputText)
+
+        //  total balance update
+
+           const balanceInput = document.getElementById('balance-total')
+           const balanceInputText = balanceInput.innerText
+        balanceInput.innerText = parseFloat(balanceInputText ) - parseFloat(withdrawInputText)
+     })
